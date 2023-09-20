@@ -225,15 +225,22 @@ public class FlowLayout extends AbstractGuiComponent implements GuiLayout {
     private int moveComponents(Node target, float x, float y, float z, float width, float height,
                                 int rowStart, int rowEnd, boolean ltr) {
         switch (align) {
-            case LEFT    -> x += ltr ? 0 : width;
-            case CENTER  -> x += width / 2;
-            case RIGHT   -> x += ltr ? width : 0;
-            case LEADING -> {
-            }
-            case TRAILING -> x += width;
-            default -> throw new AssertionError();
+            case LEFT: 
+                x += ltr ? 0 : width; 
+                break;
+            case CENTER: 
+                x += width / 2;      
+                break;
+            case RIGHT: 
+                x += ltr ? width : 0; 
+                break;
+            case LEADING:
+                break;
+            case TRAILING:
+                x += width;
+            default :
+                throw new AssertionError();
         }
-        
         for (int i = rowStart; i < rowEnd; i++) {
             Node m = children.get(i);
             if (m.getParent() != null) {

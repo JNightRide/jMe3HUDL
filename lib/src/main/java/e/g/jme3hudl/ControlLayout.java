@@ -427,7 +427,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
 
             float xPos, yPos, zPos = myPos.z * fac.z;
             switch (attributes.alignment) {
-                case Center -> {
+                case Center:
                     if ( hasParentAndLockscaling() ) {
                         xPos = (offsetX * fac.y);
                         yPos = (offsetY * fac.y);
@@ -436,8 +436,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case CenterBottom -> {
+                case CenterBottom:
                     if ( hasParentAndLockscaling() ) {
                         xPos = offsetX * fac.y;
                         yPos = -(getParentSize().y * 0.5f) + (height * 0.5f) + (offsetY * fac.y);
@@ -446,8 +445,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = -(getParentSize().y * 0.5f) + (height * 0.5f) + (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case CenterTop -> {
+                case CenterTop:
                     if ( hasParentAndLockscaling() ) {
                         xPos = offsetX * fac.y;
                         yPos = (getParentSize().y * 0.5f) - (height * 0.5f) - (offsetY * fac.y);
@@ -456,8 +454,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = (getParentSize().y * 0.5f) - (height * 0.5f) - (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case LeftBottom -> {
+                case LeftBottom:
                     if ( hasParentAndLockscaling() ) {
                         xPos = -(getParentSize().x * 0.5f) + (width * 0.5f) + offsetX * fac.y;
                         yPos = -(getParentSize().y * 0.5f) + (height * 0.5f) + (offsetY * fac.y);
@@ -466,8 +463,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = -(getParentSize().y * 0.5f) + (height * 0.5f) + (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case LeftCenter -> {
+                case LeftCenter:
                     if ( hasParentAndLockscaling() ) {
                         xPos = -(getParentSize().x * 0.5f) + (width * 0.5f) + offsetX * fac.y;
                         yPos = (offsetY * fac.y);
@@ -476,8 +472,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case LeftTop -> {
+                case LeftTop:
                     if ( hasParentAndLockscaling() ) {
                         xPos = -(getParentSize().x * 0.5f) + (width * 0.5f) + offsetX * fac.y;
                         yPos = (getParentSize().y * 0.5f) - (height * 0.5f) - (offsetY * fac.y);
@@ -486,8 +481,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = (getParentSize().y * 0.5f) - (height * 0.5f) - (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case RightBottom -> {
+                case RightBottom:
                     if ( hasParentAndLockscaling() ) {
                         xPos = (getParentSize().x * 0.5f) - (width * 0.5f) - (offsetX * fac.y);
                         yPos = -(getParentSize().y * 0.5f) + (height * 0.5f) + (offsetY * fac.y);
@@ -496,8 +490,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = -(getParentSize().y * 0.5f) + (height * 0.5f) + (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case RightCenter -> {
+                case RightCenter:
                     if ( hasParentAndLockscaling() ) {
                         xPos = (getParentSize().x * 0.5f) - (width * 0.5f) - (offsetX * fac.y);
                         yPos = (offsetY * fac.y);
@@ -506,8 +499,7 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                case RightTop -> {
+                case RightTop:
                     if ( hasParentAndLockscaling() ) {
                         xPos = (getParentSize().x * 0.5f) - (width * 0.5f) - (offsetX * fac.y);
                         yPos = (getParentSize().y * 0.5f) - (height * 0.5f) - (offsetY * fac.y);
@@ -516,8 +508,8 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
                         yPos = (getParentSize().y* 0.5f) - (height * 0.5f) - (offsetY * fac.y);
                     }
                     return new Vector3f(xPos, yPos, zPos);
-                }
-                default -> throw new AssertionError();
+                default:
+                    throw new AssertionError();
             }
         }
         
@@ -682,22 +674,18 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
             return null;
         }
         switch (ac) {
-            case ALIGNMENT -> {
+            case ALIGNMENT:
                 return (T) cl.attributes.alignment;
-            }
-            case DEPTH_POSITION -> {
+            case DEPTH_POSITION:
                 return (T) Float.valueOf(cl.attributes.originalPos.z);
-            }
-            case FONT_SIZE -> {
+            case FONT_SIZE:
                 return (T) Float.valueOf(cl.attributes.fontsize);
-            }
-            case LOCK_SCALING -> {
+            case LOCK_SCALING:
                 return (T) cl.attributes.lockscaling;
-            }
-            case POSITION -> {
+            case POSITION:
                 return (T) cl.attributes.originalPos;
-            }
-            default -> throw new AssertionError();
+            default:
+                throw new AssertionError();
         }
     }
 
@@ -722,47 +710,43 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
             return false;
         }
         switch (ac) {
-            case ALIGNMENT -> {
-                if (value instanceof Alignment alignment) {
-                    cl.attributes.setAlignment(alignment);
+            case ALIGNMENT:
+                if (value instanceof Alignment) {
+                    cl.attributes.setAlignment((Alignment) value);
                     cl.resize();
                     return true;
                 }
                 return true;
-            }
-            case DEPTH_POSITION -> {
-                if (value instanceof Vector3f vector3f) {
-                    cl.attributes.originalPos.setZ(vector3f.z);
+            case DEPTH_POSITION:
+                if (value instanceof Vector3f) {
+                    cl.attributes.originalPos.setZ(((Vector3f) value).z);
                     cl.resize();
                     return true;
                 }
                 return false;
-            }
-            case FONT_SIZE -> {
-                if (value instanceof Number number) {
-                    cl.attributes.setFontsize(number.floatValue());
+            case FONT_SIZE:
+                if (value instanceof Number) {
+                    cl.attributes.setFontsize(((Number) value).floatValue());
                     cl.setFontSize();
                     return true;
                 }
                 return false;
-            }
-            case LOCK_SCALING -> {
-                if (value instanceof Boolean bool) {
-                    cl.attributes.setLockscaling(bool);
+            case LOCK_SCALING:
+                if (value instanceof Boolean) {
+                    cl.attributes.setLockscaling((Boolean)value);
                     cl.resize();
                     return true;
                 }
                 return false;
-            }
-            case POSITION -> {
-                if (value instanceof Vector3f v3f) {
-                    cl.attributes.setOriginalPos(v3f);
+            case POSITION:
+                if (value instanceof Vector3f) {
+                    cl.attributes.setOriginalPos((Vector3f) value);
                     cl.resize();
                     return true;
                 }
                 return false;
-            }
-            default -> throw new AssertionError();
+            default:
+                throw new AssertionError();
         }
     }
     
