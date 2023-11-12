@@ -713,14 +713,14 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
             case ALIGNMENT:
                 if (value instanceof Alignment) {
                     cl.attributes.setAlignment((Alignment) value);
-                    cl.resize();
+                    cl.gc.invalidate();
                     return true;
                 }
                 return true;
             case DEPTH_POSITION:
-                if (value instanceof Vector3f) {
-                    cl.attributes.originalPos.setZ(((Vector3f) value).z);
-                    cl.resize();
+                if (value instanceof Number) {
+                    cl.attributes.originalPos.setZ(((Number) value).floatValue());
+                    cl.gc.invalidate();
                     return true;
                 }
                 return false;
@@ -734,14 +734,14 @@ public class ControlLayout extends AbstractGuiComponent implements GuiLayout {
             case LOCK_SCALING:
                 if (value instanceof Boolean) {
                     cl.attributes.setLockscaling((Boolean)value);
-                    cl.resize();
+                    cl.gc.invalidate();
                     return true;
                 }
                 return false;
             case POSITION:
                 if (value instanceof Vector3f) {
                     cl.attributes.setOriginalPos((Vector3f) value);
-                    cl.resize();
+                    cl.gc.invalidate();
                     return true;
                 }
                 return false;

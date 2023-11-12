@@ -264,7 +264,7 @@ public class GroupLayout extends AbstractGuiComponent implements GuiLayout {
             throw new IllegalArgumentException("Group must be non-null");
         }
         horizontalGroup = createTopLevelGroup(group);
-        /*invalidate();*/
+        invalidate();
     }
     
     private Group getHorizontalGroup() {
@@ -279,7 +279,7 @@ public class GroupLayout extends AbstractGuiComponent implements GuiLayout {
             throw new IllegalArgumentException("Group must be non-null");
         }
         verticalGroup = createTopLevelGroup(group);
-        /*invalidate();*/
+        invalidate();
     }
 
     private Group getVerticalGroup() {
@@ -364,7 +364,7 @@ public class GroupLayout extends AbstractGuiComponent implements GuiLayout {
         for (int counter = components.length - 2; counter >= 0; counter--) {
             master.add(getComponentInfo(components[counter]));
         }
-        /*invalidate();*/
+        invalidate();
     }
     
     public void replace(Node existingComponent, Node newComponent) {
@@ -388,7 +388,7 @@ public class GroupLayout extends AbstractGuiComponent implements GuiLayout {
         }
         info.setComponent(newComponent);
         componentInfos.put(newComponent, info);
-        /*invalidate();*/
+        invalidate();
     }
     
     public void setLayoutStyle(LayoutStyle layoutStyle) {
@@ -408,10 +408,11 @@ public class GroupLayout extends AbstractGuiComponent implements GuiLayout {
         return layoutStyle0;
     }
     
-    //@Override
-    //protected void invalidate() {
-    //    super.invalidate();
-    //}
+    @Override
+    protected void invalidate() {
+        super.invalidate();
+        isValid = false;
+    }
         
     private void prepare(int sizeType) {
         boolean visChanged = false;

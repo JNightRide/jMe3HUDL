@@ -14,3 +14,6 @@ plugins {
 
 rootProject.name = 'jMe3HUDL'
 include('lib')
+
+// More sensible sub-project names for jars an dstuff
+project(":lib").name = "jMe3HUDL"
